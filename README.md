@@ -207,7 +207,7 @@ Smart-Search-Engine/
 
 | Feature | Time Complexity |
 |----------|-----------------|
-| Keyword Search | O(1) average lookup (hash map) + TF-IDF ranking |
+| Keyword Search | O(1) average lookup + O(k log k) result ranking |
 | Auto Complete | O(prefix length + suggestions) |
 | Spell Correction | O(dictionary × word length²) |
 | Boolean Search | O(n) |

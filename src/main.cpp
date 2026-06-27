@@ -50,6 +50,8 @@ int main(){
 
             getline(cin,query);
 
+            engine.addHistory(query);
+
             auto start = chrono::high_resolution_clock::now();
 
             vector<SearchResult> result;

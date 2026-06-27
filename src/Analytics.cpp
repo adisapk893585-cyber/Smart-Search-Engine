@@ -16,8 +16,6 @@ void Analytics::recordSearch(string query){
     totalSearches++;
 
     searchCount[query]++;
-
-    addHistory(query);
 }
 
 void Analytics::recordCacheHit(){

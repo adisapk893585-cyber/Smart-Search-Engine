@@ -303,3 +303,8 @@ void SearchEngine::showTrending(){
 
     analytics.showTrending();
 }
+
+void SearchEngine::addHistory(string query){
+
+    analytics.addHistory(query);
+}

@@ -1,6 +1,6 @@
 # 🔍 Smart Search Engine (C++)
 
-A console-based Smart Search Engine built in **C++** implementing core **Information Retrieval** concepts such as **Inverted Index**, **TF-IDF Ranking**, **Trie-based Auto Complete**, **Spell Correction**, **Boolean Search**, **LRU Cache**, **Query Analytics**, and **Fuzzy Search**.
+A modular Smart Search Engine developed in Modern C++ implementing core Information Retrieval techniques including Inverted Index, TF-IDF Ranking, Trie-based Auto Complete, Boolean Search, Spell Correction, LRU Cache, Query Analytics and Fuzzy Search.
 
 ---
 
@@ -131,8 +131,18 @@ Displays the most frequently searched queries.
 ## 🏗️ Project Structure
 
 ```
+```text
 Smart-Search-Engine/
 │
+├── assets/
+│   ├── search-results.png
+│   ├── spellSuggestion.png
+│   ├── fuzzy-search.png
+│   ├── analytics.png
+│   ├── history.png
+│   |── trending.png
+│   └── autoSuggestion.png
+│    
 ├── data/
 │   ├── Documents/
 │   ├── stopwords.txt
@@ -171,6 +181,7 @@ Smart-Search-Engine/
 └── README.md
 ```
 
+
 ---
 
 ## 🧠 Algorithms Used
@@ -188,6 +199,26 @@ Smart-Search-Engine/
 | Trending | Hash Map + Sorting |
 
 ---
+
+
+---
+
+## ⏱️ Time Complexity
+
+| Feature | Time Complexity |
+|----------|-----------------|
+| Keyword Search | O(1) average lookup (hash map) + TF-IDF ranking |
+| Auto Complete | O(prefix length + suggestions) |
+| Spell Correction | O(dictionary × word length²) |
+| Boolean Search | O(n) |
+| Phrase Search | O(number of documents × document length) |
+| LRU Cache | O(1) |
+| Query History | O(1) |
+| Trending Searches | O(n log n) |
+
+---
+
+
 
 ## 🚀 How to Build
 
@@ -245,9 +276,53 @@ Graph is a non linear data structure...
 - BM25 Ranking
 - Multi-threaded Indexing
 - PDF/Text File Support
-- REST API
 
 ---
+
+
+## 📸 Screenshots
+
+### Keyword Search
+
+![Keyword Search](assets/search-results.png)
+
+---
+
+### Auto Suggestion
+
+![Auto Suggestion](assets/autosuggestion.png)
+
+---
+
+### Automatic Fuzzy Search
+
+![Fuzzy Search](assets/fuzzy-search.png)
+
+---
+
+### Analytics Dashboard
+
+![Analytics](assets/analytics.png)
+
+---
+
+### Query History
+
+![History](assets/history.png)
+
+---
+
+### Trending Searches
+
+![Trending](assets/trending.png)
+
+---
+
+### Spell Suggestion
+
+![Spell Suggestion](assets/spellSuggestion.png)
+
+
 
 ## 👨‍💻 Author
 

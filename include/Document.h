@@ -20,6 +20,10 @@ public:
         string title,
         string content
     );
+
+    string getSnippet(
+        string keyword
+    );
 };
 
 #endif

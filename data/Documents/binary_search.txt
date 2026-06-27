@@ -1,0 +1,2 @@
+Binary Search works on sorted arrays.
+Its time complexity is O(log n).

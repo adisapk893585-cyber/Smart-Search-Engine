@@ -1,0 +1,4 @@
+Graph is a non linear data structure.
+BFS is used for traversal.
+DFS is another traversal algorithm.
+Shortest path can be found using Dijkstra.

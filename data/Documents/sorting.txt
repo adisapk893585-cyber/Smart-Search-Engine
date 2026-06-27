@@ -1,0 +1,4 @@
+Sorting algorithms include Merge Sort.
+Quick Sort.
+Heap Sort.
+Bubble Sort.

@@ -1,0 +1,4 @@
+Tree is a hierarchical data structure.
+Binary Tree.
+BST.
+AVL Tree.

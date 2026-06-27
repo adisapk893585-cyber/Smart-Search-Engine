@@ -1,0 +1,2 @@
+DP is a dynamic programming technique.
+Dynamic Programming is one of the most important algorithms.

@@ -72,6 +72,8 @@ public:
 
     vector<SearchResult> fuzzySearch(string query);
 
+    void addHistory(string query);
+
     vector<string> getHistory();
 
     void showTrending();

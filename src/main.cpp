@@ -19,7 +19,9 @@ void printMenu(){
     cout<<"4. Analytics\n";
     cout<<"5. Query History\n";
     cout<<"6. Trending Searches\n";
-    cout<<"7. Exit\n";
+    cout<<"7. Index Statistics\n";
+    cout<<"8. Exports to CSV\n";
+    cout<<"9. Exit\n";
 
     cout<<"\nChoice : ";
 }
@@ -55,16 +57,17 @@ int main(){
             auto start = chrono::high_resolution_clock::now();
 
             vector<SearchResult> result;
+            string searchWord = query;
 
-            if(
+            if(query.find(" AND ") != string::npos){
 
-                query.find(" AND ") != string::npos ||
+                result = engine.booleanSearch(query);
+            }
+            else if(query.find(" OR ") != string::npos){
 
-                query.find(" OR ") != string::npos ||
-
-                query.find(" NOT ") != string::npos
-
-            ){
+                result = engine.booleanSearch(query);
+            }
+            else if(query.find(" NOT ") != string::npos){
 
                 result = engine.booleanSearch(query);
             }
@@ -80,20 +83,17 @@ int main(){
 
 
             string suggestion = engine.spellSuggestion(query);
-            string searchWord = query;
+            // searchWord = query;
             
             if(result.empty()){
 
-                vector<SearchResult> fuzzy =
-                    engine.fuzzySearch(query);
+                vector<SearchResult> fuzzy = engine.fuzzySearch(query);
 
                 if(!fuzzy.empty()){
-
-
                     cout << "\nNo exact match found.\n";
                     cout << "Showing results for : "
-                        << suggestion
-                        << "\n\n";
+                         << suggestion
+                         << "\n\n";
 
                     result = fuzzy;
 
@@ -150,7 +150,7 @@ int main(){
 
                     cout << engine.generateSnippet(
                         res.documentId,
-                        searchWord
+                        query
                     ) << endl;
 
                     cout << string(80, '-') << endl;
@@ -173,7 +173,13 @@ int main(){
                << duration.count() / 1000.0
                << " ms" << endl;
            cout << string(80, '-') << endl;
-           }
+
+
+           if(!result.empty())
+            {
+                engine.setLastSearchResults(result);
+            }
+        }
 
         else if(choice==2){
 
@@ -260,10 +266,27 @@ int main(){
 
             engine.showTrending();
         }
-        else if(choice==7){
+        else if(choice==7)
+        {
+            engine.showIndexStatistics();
+        }
 
-            cout<<"\nThank You For Using Smart Search Engine.\n";
+        else if(choice==8)
+        {
+            vector<SearchResult> results = engine.getLastSearchResults();
 
+            if(results.empty())
+            {
+                cout << "\nNo Search Results Available.\n";
+            }
+            else
+            {
+                FileManager::exportResultsToCSV(results,engine.getDocuments());
+            }
+        }
+        else if(choice==9)
+        {
+            cout << "\nThank You For Using Smart Search Engine.\n";
             break;
         }
 

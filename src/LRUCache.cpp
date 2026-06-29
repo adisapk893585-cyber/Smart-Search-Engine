@@ -18,11 +18,7 @@ vector<int> LRUCache::get(string query){
 
     auto it=mp[query];
 
-    cache.splice(
-        cache.begin(),
-        cache,
-        it
-    );
+    cache.splice(cache.begin(),cache,it);
 
     return it->second;
 }
@@ -42,13 +38,7 @@ void LRUCache::put(
         mp.erase(query);
     }
 
-    cache.push_front({
-
-        query,
-
-        results
-
-    });
+    cache.push_front({query,results});
 
     mp[query]=cache.begin();
 

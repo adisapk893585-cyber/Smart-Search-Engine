@@ -69,23 +69,15 @@ int InvertedIndex::getDocumentFrequency(string word){
     return index[word].size();
 }
 
-int InvertedIndex::getWordFrequency(
-
-    string word,
-
-    int documentId
-
-){
+int InvertedIndex::getWordFrequency(string word,int documentId){
 
     word = parser.toLowerCase(word);
 
     if(index.find(word)==index.end()){
-
         return 0;
     }
 
     if(index[word].find(documentId)==index[word].end()){
-
         return 0;
     }
 
@@ -106,12 +98,7 @@ vector<int> InvertedIndex::andSearch(
 
     vector<int> b = search(second);
 
-    unordered_set<int> s(
-
-        b.begin(),
-
-        b.end()
-    );
+    unordered_set<int> s(b.begin(),b.end());
 
     for(int id : a){
 
@@ -124,13 +111,7 @@ vector<int> InvertedIndex::andSearch(
     return answer;
 }
 
-vector<int> InvertedIndex::orSearch(
-
-    string first,
-
-    string second
-
-){
+vector<int> InvertedIndex::orSearch(string first,string second){
 
     unordered_set<int> result;
 
@@ -156,13 +137,7 @@ vector<int> InvertedIndex::orSearch(
     );
 }
 
-vector<int> InvertedIndex::notSearch(
-
-    string first,
-
-    string second
-
-){
+vector<int> InvertedIndex::notSearch(string first,string second){
 
     vector<int> answer;
 
@@ -170,12 +145,7 @@ vector<int> InvertedIndex::notSearch(
 
     vector<int> b = search(second);
 
-    unordered_set<int> remove(
-
-        b.begin(),
-
-        b.end()
-    );
+    unordered_set<int> remove(b.begin(),b.end());
 
     for(int id : a){
 

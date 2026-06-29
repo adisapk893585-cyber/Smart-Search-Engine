@@ -1,25 +1,25 @@
 # 🔍 Smart Search Engine (C++)
 
-A modular Smart Search Engine developed in Modern C++ implementing core Information Retrieval techniques including Inverted Index, TF-IDF Ranking, Trie-based Auto Complete, Boolean Search, Spell Correction, LRU Cache, Query Analytics and Fuzzy Search.
+A modular Smart Search Engine built in Modern C++ that implements core Information Retrieval techniques including Inverted Index, TF-IDF Ranking, Trie-based Auto Complete, Boolean Search, Phrase Search, Spell Correction, Fuzzy Search, LRU Cache, Query Analytics, Index Statistics and CSV Export.
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔎 Keyword Search
+### Keyword Search
 - Fast keyword lookup using an Inverted Index.
 - Ranked using TF-IDF scoring.
 
-### 📈 TF-IDF Ranking
+### TF-IDF Ranking
 - Calculates document relevance using:
   - Term Frequency (TF)
   - Inverse Document Frequency (IDF)
 
-### 🔤 Auto Complete
+### Auto Complete
 - Trie-based prefix search.
 - Instant word suggestions.
 
-### ✏️ Spell Correction
+### Spell Correction
 - Levenshtein Distance based spell suggestion.
 
 Example:
@@ -34,7 +34,7 @@ Did you mean: graph ?
 
 ---
 
-### 🤖 Automatic Fuzzy Search
+### Automatic Fuzzy Search
 
 If no exact match is found, the engine automatically searches using the closest suggested word.
 
@@ -51,7 +51,7 @@ graph
 
 ---
 
-### 🔗 Boolean Search
+### Boolean Search
 
 Supports
 
@@ -69,7 +69,7 @@ graph NOT dfs
 
 ---
 
-### 📄 Phrase Search
+### Phrase Search
 
 Supports searching complete phrases.
 
@@ -82,7 +82,7 @@ binary tree
 
 ---
 
-### 📑 Snippet Preview
+### Snippet Preview
 
 Displays a relevant preview from the matched document.
 
@@ -96,7 +96,7 @@ Graph is a non linear data structure...
 
 ---
 
-### ⚡ LRU Cache
+### LRU Cache
 
 Caches previous search results.
 
@@ -105,7 +105,7 @@ Caches previous search results.
 
 ---
 
-### 📊 Analytics Dashboard
+### Analytics Dashboard
 
 Tracks
 
@@ -116,22 +116,48 @@ Tracks
 
 ---
 
-### 🕒 Query History
+### Query History
 
 Stores the latest search history.
 
 ---
 
-### 📈 Trending Searches
+### Trending Searches
 
 Displays the most frequently searched queries.
+
+---
+
+### Index Statistics
+
+Displays corpus statistics including:
+
+- Documents Indexed
+- Unique Terms
+- Total Tokens
+- Average Document Size
+- Largest Document
+- Smallest Document
+
+---
+
+### Export Search Results
+
+Exports the most recent search results to a CSV file.
+
+The exported file contains:
+
+- Rank
+- Document Name
+- TF-IDF Score
+- Search Query
+- Export Timestamp
 
 ---
 
 ## 🏗️ Project Structure
 
 ```
-```text
 Smart-Search-Engine/
 │
 ├── assets/
@@ -176,6 +202,10 @@ Smart-Search-Engine/
 │   ├── Trie.cpp
 │   ├── Utils.cpp
 │   └── main.cpp
+|
+|── exports/
+│   ├── search_results.csv
+│   └── .gitkeep
 │
 ├── .gitignore
 └── README.md
@@ -184,7 +214,7 @@ Smart-Search-Engine/
 
 ---
 
-## 🧠 Algorithms Used
+## Algorithms Used
 
 | Feature | Algorithm / Data Structure |
 |----------|---------------------------|
@@ -197,6 +227,8 @@ Smart-Search-Engine/
 | Cache | LRU Cache |
 | History | Vector |
 | Trending | Hash Map + Sorting |
+| Index Statistics | Corpus Statistics |
+| CSV Export | File Handling |
 
 ---
 
@@ -210,7 +242,7 @@ Smart-Search-Engine/
 | Keyword Search | O(1) average lookup + O(k log k) result ranking |
 | Auto Complete | O(prefix length + suggestions) |
 | Spell Correction | O(dictionary × word length²) |
-| Boolean Search | O(n) |
+| Boolean Search | O(P1 + P2)
 | Phrase Search | O(number of documents × document length) |
 | LRU Cache | O(1) |
 | Query History | O(1) |
@@ -220,15 +252,15 @@ Smart-Search-Engine/
 
 
 
-## 🚀 How to Build
+## How to Build
 
-```
+```bash
 g++ -std=c++20 src/*.cpp -I include -o SearchEngine
 ```
 
 Run
 
-```
+```bash
 ./SearchEngine
 ```
 
@@ -266,16 +298,20 @@ Graph is a non linear data structure...
 - Caching
 - Hashing
 - String Processing
+- Search Engine Design
+- CSV Export
+- Corpus Statistics
 
 ---
 
 ## 🔮 Future Improvements
 
-- Web Interface
 - Positional Inverted Index
 - BM25 Ranking
-- Multi-threaded Indexing
-- PDF/Text File Support
+- PDF/Text File Indexing
+- Multi-threaded Index Construction
+- Incremental Index Updates
+- Web Interface
 
 ---
 
@@ -321,6 +357,17 @@ Graph is a non linear data structure...
 ### Spell Suggestion
 
 ![Spell Suggestion](assets/spellSuggestion.png)
+
+
+### Index Statistics
+
+![Index Statistics](assets/indexStatistics.png)
+
+---
+
+### CSV Export
+
+![CSV Export](assets/csvExport.png)
 
 
 

@@ -43,6 +43,14 @@ private:
 
     vector<string> vocabularyList;
 
+    int getTotalWords();
+
+    pair<string,int> getLargestDocument();
+
+    pair<string,int> getSmallestDocument();
+
+    vector<SearchResult> lastSearchResults;
+
 public:
 
     SearchEngine();
@@ -77,6 +85,12 @@ public:
     vector<string> getHistory();
 
     void showTrending();
+    
+    void showIndexStatistics();
+
+    void setLastSearchResults(vector<SearchResult> results);
+
+    vector<SearchResult> getLastSearchResults();
 
 };
 

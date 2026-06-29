@@ -4,6 +4,7 @@
 #include<iostream>
 #include<vector>
 
+#include "SearchResult.h"
 #include "Document.h"
 
 using namespace std;
@@ -11,10 +12,9 @@ using namespace std;
 class FileManager{
 
 public:
+    static vector<Document> loadDocuments(string folderPath);
 
-    static vector<Document> loadDocuments(
-        string folderPath
-    );
+    static void exportResultsToCSV(vector<SearchResult> results,vector<Document> documents);
 
 };
 
